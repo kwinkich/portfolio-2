@@ -277,7 +277,6 @@ textarea {
 	flex-direction: column;
 	gap: 10px 0px;
 	padding-left: 18px;
-	list-style-image: url('../images/check.svg');
 	margin-top: 8px;
 	margin-bottom: 48px;
 }
@@ -285,6 +284,7 @@ textarea {
 .list-item {
 	font-family: 'Satoshi-Regular';
 	font-size: 14px;
+	list-style-image: url('../images/check.svg');
 	color: #26203B;
 }
 
@@ -370,6 +370,21 @@ textarea {
 
 .button-main-anim:hover {
 	background-color: #334acc;
+}
+
+.input-label.error {
+	color: #FF0000;
+}
+
+.input.error {
+	border: 1px solid #FF0000;
+}
+
+.input-error {
+	display: none;
+	font-family: 'Satoshi-Regular';
+	font-size: 14px;
+	color: #FF0000;
 }
 
 @keyframes opacityAnim {

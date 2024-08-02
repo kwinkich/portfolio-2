@@ -37,53 +37,77 @@
 							<button id="sign-in" class="button button-switch">Sign In</button>
 						</div>
 						<div class="sign-up-container">
-							<form action="#">
+							<!-- <form action="#"> -->
+							<div>
 								<div class="input-block">
 									<label class="input-label" for="#">Email Id</label>
 									<input
+										id="input-email"
 										class="input input-text"
 										type="email"
 										placeholder="Email"
 									/>
+									<p id="email-error" class="input-error">Error</p>
 								</div>
 								<div class="input-block">
 									<label class="input-label label-flex" for="#">
 										Password
 										<a href="#">Forgot Password?</a>
 									</label>
-									<input class="input" type="password" placeholder="Password" />
+									<input
+										id="input-pass"
+										class="input"
+										type="password"
+										placeholder="Password"
+									/>
+									<p id="pass-error" class="input-error">Error</p>
 								</div>
 								<ul class="check-list">
-									<li class="list-item">Password Strength : Weak</li>
-									<li class="list-item">
-										Cannot contain your name or email address
+									<li id="is-strong-pass" class="list-item">
+										Password Strength: <span id="high-pass">Weak</span>
 									</li>
-									<li class="list-item">At least 8 characters</li>
-									<li class="list-item">Contains a number or symbol</li>
+									<li id="least-pass" class="list-item">
+										At least 8 characters
+									</li>
 								</ul>
-								<button class="button-main-anim button active button-mb-20">
+								<button
+									id="create-profile"
+									class="button-main-anim button active button-mb-20"
+								>
 									Create Account
 								</button>
-							</form>
+							</div>
+							<!-- </form> -->
 						</div>
 						<div class="sign-in-container">
 							<form action="#">
 								<div class="input-block">
 									<label class="input-label" for="#">Email Id</label>
 									<input
+										id="signin-input-email"
 										class="input input-text"
 										type="email"
 										placeholder="Email"
 									/>
+									<p id="signin-email-error" class="input-error">Error</p>
 								</div>
 								<div class="input-block">
 									<label class="input-label label-flex" for="#">
 										Password
 										<a href="#">Forgot Password?</a>
 									</label>
-									<input class="input" type="password" placeholder="Password" />
+									<input
+										id="signin-input-pass"
+										class="input"
+										type="password"
+										placeholder="Password"
+									/>
+									<p id="signin-pass-error" class="input-error">Error</p>
 								</div>
-								<button class="button-main-anim button active button-mb-20">
+								<button
+									id="sign-in-acc"
+									class="button-main-anim button active button-mb-20"
+								>
 									Sign in
 								</button>
 							</form>
