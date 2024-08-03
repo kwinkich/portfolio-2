@@ -19,8 +19,8 @@ function goToApp() {
 }
 
 function goToCreateToDo() {
-	window.location.href = 'createToDo.html';
+	window.location.href = '/pages/createToDo.html';
 }
 function goToHome() {
-	window.location.href = 'app.html';
+	window.location.href = '/pages/app.html';
 }
