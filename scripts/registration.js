@@ -81,16 +81,16 @@ function validatePass(password) {
 	highPass = pass.length >= 14 ? 2 : pass.length >= 8 ? 1 : 0;
 
 	const status = {
-		0: { text: 'Weak', color: '#26203B', img: 'url("../images/check.svg")' },
+		0: { text: 'Weak', color: '#26203B', img: 'url("../../images/check.svg")' },
 		1: {
 			text: 'Moderate',
 			color: '#00A500',
-			img: 'url("../images/check-true.svg")',
+			img: 'url("../../images/check-true.svg")',
 		},
 		2: {
 			text: 'Strong',
 			color: '#00A500',
-			img: 'url("../images/check-true.svg")',
+			img: 'url("../../images/check-true.svg")',
 		},
 	};
 
@@ -155,7 +155,7 @@ createProfileBtn.addEventListener('click', () => {
 	);
 	if (isEmail && isPass) {
 		registration(inputEmail.value, inputPass.value);
-		window.location.href = '/pages/success.html';
+		window.location.href = '/pages/registration/success.html';
 	}
 });
 signInProfileBtn.addEventListener('click', () => {
@@ -171,7 +171,7 @@ signInProfileBtn.addEventListener('click', () => {
 	);
 
 	if (email === kwinkichProjEmail && pass === kwinkichProjPass) {
-		window.location.href = '/pages/app.html';
+		window.location.href = '/pages/app/app.html';
 	}
 	if (email !== kwinkichProjEmail) {
 		handleError(signinInputEmail, signinLabelInputEmail);
@@ -193,6 +193,7 @@ function toggleSignMode(activeBtn, inactiveBtn, showContainer, hideContainer) {
 		pass = undefined;
 	}
 }
+
 signUpBtn.addEventListener('click', () =>
 	toggleSignMode(signUpBtn, signInBtn, signUpContainer, signInContainer)
 );

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../../styles/main.css" />
+	</head>
+	<body>
+		<main class="main">
+			<div class="container main-flex">
+				<section class="first-block placeholder-screen">
+					<article class="placeholder-top-info">
+						<h2 class="h2">Welcome to SimpleFlow</h2>
+						<p class="p-white p-medium">
+							Your Gateway to Effortless Management.
+						</p>
+					</article>
+					<article class="placeholder-bottom-info">
+						<h2 class="h2">Seamless Collaboration</h2>
+						<p class="p-white p-regular">
+							Effortlessly work together with your team in real-time.
+						</p>
+					</article>
+					<img class="placeholder-bg" src="../../images/bg.png" alt="" />
+				</section>
+				<section class="second-block">
+					<div class="second-container">
+						<div class="header-block">
+							<img src="../../images/icon.svg" alt="Icon" />
+							<h4 class="h4">SimpleFlow</h4>
+						</div>
+						<div class="switch-block">
+							<button id="sign-up" class="button active button-switch">
+								Sign Up
+							</button>
+							<button id="sign-in" class="button button-switch">Sign In</button>
+						</div>
+						<div class="sign-up-container">
+							<div>
+								<div class="input-block">
+									<label class="input-label" for="#">Email Id</label>
+									<input
+										id="input-email"
+										class="input input-text"
+										type="email"
+										placeholder="Email"
+									/>
+									<p id="email-error" class="input-error">Error</p>
+								</div>
+								<div class="input-block">
+									<label class="input-label label-flex" for="#">
+										Password
+										<a href="#">Forgot Password?</a>
+									</label>
+									<input
+										id="input-pass"
+										class="input"
+										type="password"
+										placeholder="Password"
+									/>
+									<p id="pass-error" class="input-error">Error</p>
+								</div>
+								<ul class="check-list">
+									<li id="is-strong-pass" class="list-item">
+										Password Strength: <span id="high-pass">Weak</span>
+									</li>
+									<li id="least-pass" class="list-item">
+										At least 8 characters
+									</li>
+								</ul>
+								<button
+									id="create-profile"
+									class="button-main-anim button active button-mb-20"
+								>
+									Create Account
+								</button>
+							</div>
+						</div>
+						<div class="sign-in-container">
+							<div class="input-block">
+								<label class="input-label" for="#">Email Id</label>
+								<input
+									id="signin-input-email"
+									class="input input-text"
+									type="email"
+									placeholder="Email"
+								/>
+								<p id="signin-email-error" class="input-error">Error</p>
+							</div>
+							<div class="input-block">
+								<label class="input-label label-flex" for="#">
+									Password
+									<a href="#">Forgot Password?</a>
+								</label>
+								<input
+									id="signin-input-pass"
+									class="input"
+									type="password"
+									placeholder="Password"
+								/>
+								<p id="signin-pass-error" class="input-error">Error</p>
+							</div>
+							<button
+								id="sign-in-acc"
+								class="button-main-anim button active button-mb-20"
+							>
+								Sign in
+							</button>
+						</div>
+						<div class="or-block">
+							<p>OR</p>
+						</div>
+						<div class="another-registration-block">
+							<button class="button-registration">
+								<img src="../../images/google-icon.svg" alt="google" />
+							</button>
+							<button class="button-registration">
+								<img src="../../images/aple-icon.svg" alt="google" />
+							</button>
+							<button class="button-registration">
+								<img src="../../images/Microsoft-icon.svg" alt="google" />
+							</button>
+						</div>
+						<div class="info">
+							<p class="info-p">
+								By signing up to create an account I accept Company’s<br />
+								<span> Terms of use & Privacy Policy. </span>
+							</p>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+		<script src="../../scripts/registration.js"></script>
+		<script src="../../scripts/redirect.js"></script>
+	</body>
+</html>
