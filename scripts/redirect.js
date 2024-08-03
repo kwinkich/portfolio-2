@@ -6,7 +6,8 @@ window.onload = () => {
 		isVerified === 'true' &&
 		!currentUrl.includes('/pages/app.html') &&
 		!currentUrl.includes('/pages/success.html') &&
-		!currentUrl.includes('/pages/createToDo.html')
+		!currentUrl.includes('/pages/createToDo.html') &&
+		!currentUrl.includes('/pages/createtodo')
 	) {
 		window.location.href = '/pages/app.html';
 	} else if (isVerified !== 'true' && !currentUrl.includes('/index.html')) {
