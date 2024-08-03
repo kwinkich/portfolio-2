@@ -1,9 +1,17 @@
 // Универсальная функция для выборки элементов
 const select = (selector) => document.querySelector(selector);
 
+// Устанавливаем состояния, пароль и почту
 const isVerified = localStorage.getItem('isVerified');
-const kwinkichProjEmail = localStorage.getItem('isVerified');
-const kwinkichProjPass = localStorage.getItem('isVerified');
+const kwinkichProjEmail = localStorage.getItem('kwinkichProjEmail');
+const kwinkichProjPass = localStorage.getItem('kwinkichProjPass');
+
+// Переменные для надёжности пароля, хранения почты и пароля
+let highPass = 0;
+let email;
+let pass;
+
+// Проверка и создание, в случае отсутствия
 
 if (!isVerified) {
 	localStorage.setItem('isVerified', 'false');
@@ -17,22 +25,7 @@ if (!kwinkichProjPass) {
 	localStorage.setItem('kwinkichProjPass', '');
 }
 
-function registration(email, pass) {
-	localStorage.setItem('isVerified', 'true');
-	localStorage.setItem('kwinkichProjEmail', email);
-	localStorage.setItem('kwinkichProjPass', pass);
-}
-
-function signIn(email, pass) {
-	if (
-		email === localStorage.getItem('kwinkichProjEmail') &&
-		pass === localStorage.getItem('kwinkichProjPass')
-	) {
-		return true;
-	} else {
-		return false;
-	}
-}
+// Получаем элементы
 
 // Buttons
 const createProfileBtn = select('#create-profile');
@@ -60,22 +53,29 @@ const signInContainer = select('.sign-in-container');
 const isLeastPass = select('#least-pass');
 const highPassText = select('#high-pass');
 const isStrongPass = select('#is-strong-pass');
-let highPass = 0;
-let email;
-let pass;
 
-if (isVerified === 'true') {
-	signUpContainer.style.display = 'none';
-	signInContainer.style.display = 'block';
-	signUpBtn.classList.toggle('active');
-	signInBtn.classList.toggle('active');
+// Функции регистрации и входа
+function registration(email, pass) {
+	localStorage.setItem('isVerified', 'true');
+	localStorage.setItem('kwinkichProjEmail', email);
+	localStorage.setItem('kwinkichProjPass', pass);
+}
+function signIn(email, pass) {
+	if (
+		email === localStorage.getItem('kwinkichProjEmail') &&
+		pass === localStorage.getItem('kwinkichProjPass')
+	) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
+// Функция валидации почты и пароля
 function validateEmail(text) {
 	const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 	return re.test(text);
 }
-
 function validatePass(password) {
 	pass = password;
 	highPass = pass.length >= 14 ? 2 : pass.length >= 8 ? 1 : 0;
@@ -101,7 +101,7 @@ function validatePass(password) {
 	isStrongPass.style.color = status[highPass].color;
 }
 
-// Убираем показ ошибок в handleInput
+// Обработчик инпутов
 function handleInput(inputElement, validateFunction) {
 	inputElement.addEventListener('input', () => {
 		if (validateFunction(inputElement.value)) {
@@ -112,7 +112,8 @@ function handleInput(inputElement, validateFunction) {
 	});
 }
 
-function handleError(inputElement, labelElement, condition) {
+// Обработчики ошибок
+function handleErrorCondition(inputElement, labelElement, condition) {
 	if (condition) {
 		inputElement.classList.add('error');
 		labelElement.style.display = 'block';
@@ -125,6 +126,14 @@ function handleError(inputElement, labelElement, condition) {
 		return true;
 	}
 }
+function handleError(inputElement, labelElement) {
+	inputElement.classList.add('error');
+	labelElement.style.display = 'block';
+	setTimeout(() => {
+		inputElement.classList.remove('error');
+		labelElement.style.display = 'none';
+	}, 2000);
+}
 
 handleInput(inputEmail, validateEmail);
 handleInput(signinInputEmail, validateEmail);
@@ -132,31 +141,47 @@ handleInput(signinInputEmail, validateEmail);
 inputPass.addEventListener('input', () => validatePass(inputPass.value));
 signinInputPass.addEventListener('input', () => (pass = signinInputPass.value));
 
+// Обработчик кнопок
 createProfileBtn.addEventListener('click', () => {
-	const isEmail = handleError(
+	const isEmail = handleErrorCondition(
 		inputEmail,
 		labelInputEmail,
 		!email || email.length < 5
 	);
-	const isPass = handleError(
+	const isPass = handleErrorCondition(
 		inputPass,
 		labelInputPass,
 		!pass || pass.length < 8
 	);
 	if (isEmail && isPass) {
 		registration(inputEmail.value, inputPass.value);
+		window.location.href = '/pages/success.html';
 	}
 });
-
 signInProfileBtn.addEventListener('click', () => {
-	handleError(
+	handleErrorCondition(
 		signinInputEmail,
 		signinLabelInputEmail,
 		!email || email.length < 5
 	);
-	handleError(signinInputPass, signinLabelInputPass, !pass || pass.length < 8);
+	handleErrorCondition(
+		signinInputPass,
+		signinLabelInputPass,
+		!pass || pass.length < 8
+	);
+
+	if (email === kwinkichProjEmail && pass === kwinkichProjPass) {
+		window.location.href = '/pages/app.html';
+	}
+	if (email !== kwinkichProjEmail) {
+		handleError(signinInputEmail, signinLabelInputEmail);
+	}
+	if (pass !== kwinkichProjPass) {
+		handleError(signinInputPass, signinLabelInputPass);
+	}
 });
 
+// Переключение форм
 function toggleSignMode(activeBtn, inactiveBtn, showContainer, hideContainer) {
 	if (!activeBtn.classList.contains('active')) {
 		activeBtn.classList.add('active');
@@ -168,7 +193,6 @@ function toggleSignMode(activeBtn, inactiveBtn, showContainer, hideContainer) {
 		pass = undefined;
 	}
 }
-
 signUpBtn.addEventListener('click', () =>
 	toggleSignMode(signUpBtn, signInBtn, signUpContainer, signInContainer)
 );

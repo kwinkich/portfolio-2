@@ -11,6 +11,7 @@
 	display: flex;
 	justify-content: center;
 	gap: 0px 12px;
+	animation: opacityAnim 1.3s ease-in-out;
 }
 
 .success-info-block {
@@ -24,24 +25,38 @@
 	width: 180px;
 	height: 180px;
 	margin-bottom: 36px;
+	animation: opacityAnim 1.4s ease-in-out;
 }
 
 .h3-success-visual {
 	margin-bottom: 12px;
+	animation: opacityAnim 1.5s ease-in-out;
 }
 
 .p-success-visual {
 	font-family: 'Satoshi-Regular';
 	font-size: 24px;
 	color: #9C9AA5;
+	animation: opacityAnim 1.6s ease-in-out;
 }
 
 .button-success-block {
 	width: 240px;
+	animation: opacityAnim 1.7s ease-in-out;
 }
 
 @media (max-width:500px) {
 	.p-success-visual {
 		font-size: 18px;
+	}
+}
+
+@keyframes opacityAnim {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
 	}
 }
