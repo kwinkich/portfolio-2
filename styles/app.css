@@ -20,7 +20,7 @@
 }
 
 .main-app-flex {
-	height: 85vh;
+	max-height: 85vh;
 	overflow: hidden;
 	overflow-y: scroll;
 
@@ -56,4 +56,40 @@
 	font-family: 'Satoshi-Regular';
 	font-size: 16px;
 	color: #26203B;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	line-height: 130%;
+}
+
+.text-isempty {
+	font-family: 'Satoshi-Medium';
+	font-size: 18px;
+	color: #26203B;
+}
+
+.main-app-create-form {
+	width: 300px;
+}
+
+@media (max-width: 1165px) {
+	.todo-item {
+		width: 48%;
+	}
+}
+
+@media (max-width: 680px) {
+	.todo-item {
+		width: 100%;
+	}
+}
+
+@media (max-width: 430px) {
+	.header-app-flex {
+		gap: 20px 0px;
+		display: flex;
+		flex-direction: column;
+	}
 }

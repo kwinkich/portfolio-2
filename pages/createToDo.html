@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../styles/main.css" />
+	</head>
+	<body>
+		<header class="header-app">
+			<div class="container-app header-app-flex">
+				<p class="logo">ToDo K</p>
+				<div class="header-app-btns-flex">
+					<div>
+						<button onclick="goToHome()" class="button active button-main-anim">
+							Home
+						</button>
+					</div>
+					<div>
+						<button class="button warning button-main-warning-anim">
+							Log out
+						</button>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<main class="main-app">
+			<div class="container-app">
+				<div class="main-app-create-form">
+					<div class="input-block">
+						<label class="input-label" for="todo-name-input">ToDo Name</label>
+						<input
+							id="todo-name-input"
+							class="input input-text"
+							type="text"
+							placeholder="ToDo Name"
+						/>
+						<p id="todo-name-error" class="input-error">Error</p>
+					</div>
+					<div class="input-block">
+						<label class="input-label" for="">ToDo Description</label>
+						<input
+							id="todo-name-desc"
+							class="input input-text"
+							type="text"
+							placeholder="ToDo Description"
+						/>
+						<p id="todo-desc-error" class="input-error">Error</p>
+					</div>
+					<div>
+						<button
+							id="todo-create-button"
+							class="button active button-main-anim"
+						>
+							Create ToDo
+						</button>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<script src="../scripts/redirect.js"></script>
+		<script src="../scripts/createToDo.js"></script>
+	</body>
+</html>
