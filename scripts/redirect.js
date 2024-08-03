@@ -10,11 +10,7 @@ window.onload = () => {
 		!currentUrl.includes('createtodo')
 	) {
 		window.location.href = '/pages/app/app.html';
-	} else if (isVerified !== 'true' && !currentUrl.includes('/index.html')) {
-		window.location.href = '../index.html';
-	}
-
-	if (isVerified !== 'true' && !currentUrl.includes('auth.html')) {
+	} else if (isVerified !== 'true' && !currentUrl.includes('auth.html')) {
 		window.location.href = '/pages/registration/auth.html';
 	}
 };
