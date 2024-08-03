@@ -1,0 +1,47 @@
+.main-success {}
+
+.main-success-flex {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.header-success-block {
+	display: flex;
+	justify-content: center;
+	gap: 0px 12px;
+}
+
+.success-info-block {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.success-img {
+	width: 180px;
+	height: 180px;
+	margin-bottom: 36px;
+}
+
+.h3-success-visual {
+	margin-bottom: 12px;
+}
+
+.p-success-visual {
+	font-family: 'Satoshi-Regular';
+	font-size: 24px;
+	color: #9C9AA5;
+}
+
+.button-success-block {
+	width: 240px;
+}
+
+@media (max-width:500px) {
+	.p-success-visual {
+		font-size: 18px;
+	}
+}

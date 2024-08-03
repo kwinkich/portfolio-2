@@ -1,4 +1,5 @@
 @import url('../fonts/satoshi.css');
+@import url('./success.css');
 
 * {
 	padding: 0;
@@ -145,6 +146,12 @@ textarea {
 }
 
 .placeholder-top-info {}
+
+.h3 {
+	font-family: 'Satoshi-Medium';
+	font-size: 32px;
+	color: #26203B;
+}
 
 .h2 {
 	font-size: 40px;
@@ -432,5 +439,11 @@ textarea {
 	.second-block {
 		flex: 0 1 auto;
 		max-width: 100%;
+	}
+}
+
+@media (max-width: 500px) {
+	.h3 {
+		font-size: 24px;
 	}
 }
