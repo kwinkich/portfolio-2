@@ -31,4 +31,9 @@ if (arrTodoList.length > 0) {
 
 		containerToDos.appendChild(todoElement);
 	});
+} else {
+	let textToDoIsEmpty = document.createElement('p');
+	textToDoIsEmpty.classList.add('text-isempty');
+	textToDoIsEmpty.innerText = 'Your ToDo list is empty!';
+	containerToDos.appendChild(textToDoIsEmpty);
 }
