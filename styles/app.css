@@ -1,0 +1,59 @@
+.container-app {
+	margin: 0 auto;
+	padding: 32px;
+}
+
+.header-app-flex {
+	display: flex;
+	justify-content: space-between;
+}
+
+.logo {
+	font-family: 'Satoshi-Bold';
+	font-size: 28px;
+	color: #26203B;
+}
+
+.header-app-btns-flex {
+	display: flex;
+	gap: 0px 24px;
+}
+
+.main-app-flex {
+	height: 85vh;
+	overflow: hidden;
+	overflow-y: scroll;
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.btns-todo-item-flex {
+	display: flex;
+	gap: 0px 16px;
+}
+
+.todo-item {
+	width: 355px;
+	border-radius: 8px;
+	padding: 28px 36px;
+	margin-bottom: 16px;
+	background-color: #ECF0FF;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.todo-item-text {
+	display: flex;
+	flex-direction: column;
+	gap: 16px 0px;
+	margin-bottom: 28px;
+}
+
+.todo-desc {
+	font-family: 'Satoshi-Regular';
+	font-size: 16px;
+	color: #26203B;
+}
