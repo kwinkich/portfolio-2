@@ -1,10 +1,3 @@
-const todoList = localStorage.getItem('todoList');
-const arrTodoList = todoList ? JSON.parse(todoList) : [];
-
-if (!todoList) {
-	localStorage.setItem('todoList', JSON.stringify([]));
-}
-
 const inputToDoName = document.querySelector('#todo-name-input');
 const inputToDoDescription = document.querySelector('#todo-name-desc');
 
@@ -15,6 +8,13 @@ const buttonToDoCreate = document.querySelector('#todo-create-button');
 
 let todoName = inputToDoName.value;
 let todoDescription = inputToDoDescription.value;
+
+const todoList = localStorage.getItem('todoList');
+const arrTodoList = todoList ? JSON.parse(todoList) : [];
+
+if (!todoList) {
+	localStorage.setItem('todoList', JSON.stringify([]));
+}
 
 function validateToDoData(data, elementInput, elementError) {
 	if (data.length < 4) {

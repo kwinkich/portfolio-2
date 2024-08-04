@@ -15,13 +15,19 @@ window.onload = () => {
 	}
 };
 
-function goToApp() {
+export function goToApp() {
 	window.location.href = '/pages/app/app.html';
 }
 
-function goToCreateToDo() {
+export function goToCreateToDo() {
 	window.location.href = '/pages/app/createToDo.html';
 }
-function goToHome() {
-	window.location.href = '/pages/app/app.html';
+
+export function goToSuccess() {
+	window.location.href = '/pages/registration/success.html';
+}
+
+export function logout() {
+	localStorage.setItem('isVerified', 'false');
+	window.location.href = '/pages/registration/auth.html';
 }

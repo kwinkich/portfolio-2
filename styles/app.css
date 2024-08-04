@@ -35,7 +35,7 @@
 }
 
 .todo-item {
-	width: 355px;
+	width: 23%;
 	border-radius: 8px;
 	padding: 28px 36px;
 	margin-bottom: 16px;
@@ -50,6 +50,14 @@
 	flex-direction: column;
 	gap: 16px 0px;
 	margin-bottom: 28px;
+}
+
+.h4-todo-item-visual {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
 }
 
 .todo-desc {

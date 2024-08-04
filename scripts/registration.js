@@ -1,32 +1,9 @@
+import { goToApp, goToSuccess } from './redirect.js';
+
 // Универсальная функция для выборки элементов
 const select = (selector) => document.querySelector(selector);
 
-// Устанавливаем состояния, пароль и почту
-const isVerified = localStorage.getItem('isVerified');
-const kwinkichProjEmail = localStorage.getItem('kwinkichProjEmail');
-const kwinkichProjPass = localStorage.getItem('kwinkichProjPass');
-
-// Переменные для надёжности пароля, хранения почты и пароля
-let highPass = 0;
-let email;
-let pass;
-
-// Проверка и создание, в случае отсутствия
-
-if (!isVerified) {
-	localStorage.setItem('isVerified', 'false');
-}
-
-if (!kwinkichProjEmail) {
-	localStorage.setItem('kwinkichProjEmail', '');
-}
-
-if (!kwinkichProjPass) {
-	localStorage.setItem('kwinkichProjPass', '');
-}
-
 // Получаем элементы
-
 // Buttons
 const createProfileBtn = select('#create-profile');
 const signInProfileBtn = select('#sign-in-acc');
@@ -54,21 +31,42 @@ const isLeastPass = select('#least-pass');
 const highPassText = select('#high-pass');
 const isStrongPass = select('#is-strong-pass');
 
+// Устанавливаем состояния, пароль и почту
+const isVerified = localStorage.getItem('isVerified');
+const kwinkichProjEmail = localStorage.getItem('kwinkichProjEmail');
+const kwinkichProjPass = localStorage.getItem('kwinkichProjPass');
+
+// Переменные для надёжности пароля, хранения почты и пароля
+let highPass = 0;
+let email;
+let pass;
+
+// Проверка и создание, в случае отсутствия
+
+if (!isVerified) {
+	localStorage.setItem('isVerified', 'false');
+}
+if (!kwinkichProjEmail) {
+	localStorage.setItem('kwinkichProjEmail', '');
+}
+if (!kwinkichProjPass) {
+	localStorage.setItem('kwinkichProjPass', '');
+}
+
+// Set Log in or Reg
+if (
+	isVerified === 'false' &&
+	kwinkichProjEmail !== '' &&
+	kwinkichProjPass !== ''
+) {
+	toggleSignMode(signInBtn, signUpBtn, signInContainer, signUpContainer);
+}
+
 // Функции регистрации и входа
 function registration(email, pass) {
 	localStorage.setItem('isVerified', 'true');
 	localStorage.setItem('kwinkichProjEmail', email);
 	localStorage.setItem('kwinkichProjPass', pass);
-}
-function signIn(email, pass) {
-	if (
-		email === localStorage.getItem('kwinkichProjEmail') &&
-		pass === localStorage.getItem('kwinkichProjPass')
-	) {
-		return true;
-	} else {
-		return false;
-	}
 }
 
 // Функция валидации почты и пароля
@@ -101,8 +99,8 @@ function validatePass(password) {
 	isStrongPass.style.color = status[highPass].color;
 }
 
-// Обработчик инпутов
-function handleInput(inputElement, validateFunction) {
+// Обработчик email инпутов
+function handleInputEmail(inputElement, validateFunction) {
 	inputElement.addEventListener('input', () => {
 		if (validateFunction(inputElement.value)) {
 			email = inputElement.value;
@@ -111,6 +109,8 @@ function handleInput(inputElement, validateFunction) {
 		}
 	});
 }
+handleInputEmail(inputEmail, validateEmail);
+handleInputEmail(signinInputEmail, validateEmail);
 
 // Обработчики ошибок
 function handleErrorCondition(inputElement, labelElement, condition) {
@@ -135,9 +135,6 @@ function handleError(inputElement, labelElement) {
 	}, 2000);
 }
 
-handleInput(inputEmail, validateEmail);
-handleInput(signinInputEmail, validateEmail);
-
 inputPass.addEventListener('input', () => validatePass(inputPass.value));
 signinInputPass.addEventListener('input', () => (pass = signinInputPass.value));
 
@@ -155,7 +152,7 @@ createProfileBtn.addEventListener('click', () => {
 	);
 	if (isEmail && isPass) {
 		registration(inputEmail.value, inputPass.value);
-		window.location.href = '/pages/registration/success.html';
+		goToSuccess();
 	}
 });
 signInProfileBtn.addEventListener('click', () => {
@@ -171,7 +168,8 @@ signInProfileBtn.addEventListener('click', () => {
 	);
 
 	if (email === kwinkichProjEmail && pass === kwinkichProjPass) {
-		window.location.href = '/pages/app/app.html';
+		localStorage.setItem('isVerified', 'true');
+		goToApp();
 	}
 	if (email !== kwinkichProjEmail) {
 		handleError(signinInputEmail, signinLabelInputEmail);
@@ -193,7 +191,6 @@ function toggleSignMode(activeBtn, inactiveBtn, showContainer, hideContainer) {
 		pass = undefined;
 	}
 }
-
 signUpBtn.addEventListener('click', () =>
 	toggleSignMode(signUpBtn, signInBtn, signUpContainer, signInContainer)
 );

@@ -1,12 +1,6 @@
 const containerToDos = document.querySelector('.main-app-flex');
-
 const todoList = localStorage.getItem('todoList');
-
-console.log(todoList);
-
 const arrTodoList = todoList ? JSON.parse(todoList) : [];
-
-console.log(arrTodoList);
 
 if (arrTodoList.length > 0) {
 	arrTodoList.forEach((todo) => {
