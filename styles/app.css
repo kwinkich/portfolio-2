@@ -1,6 +1,6 @@
 .container-app {
 	margin: 0 auto;
-	padding: 32px;
+	padding: 32px 32px 0px 32px;
 }
 
 .header-app-flex {
@@ -17,9 +17,15 @@
 .header-app-btns-flex {
 	display: flex;
 	gap: 0px 24px;
+	margin-bottom: 24px;
+}
+
+.hedaer-app-switch-container {
+	width: 270px;
 }
 
 .main-app-flex {
+	display: none;
 	max-height: 85vh;
 	overflow: hidden;
 	overflow-y: scroll;
@@ -27,6 +33,10 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: 20px;
+}
+
+.main-app-flex.show {
+	display: block;
 }
 
 .btns-todo-item-flex {
@@ -100,4 +110,8 @@
 		display: flex;
 		flex-direction: column;
 	}
+}
+
+#container-doneToDo {
+	display: none;
 }

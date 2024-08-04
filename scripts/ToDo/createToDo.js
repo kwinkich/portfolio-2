@@ -6,11 +6,11 @@ const textToDoDescriptionError = document.querySelector('#todo-desc-error');
 
 const buttonToDoCreate = document.querySelector('#btn-toDoCreate');
 
-let todoName = inputToDoName.value;
-let todoDescription = inputToDoDescription.value;
-
 const todoList = localStorage.getItem('todoList');
 const arrTodoList = todoList ? JSON.parse(todoList) : [];
+
+let todoName = inputToDoName.value;
+let todoDescription = inputToDoDescription.value;
 
 if (!todoList) {
 	localStorage.setItem('todoList', JSON.stringify([]));
@@ -56,6 +56,7 @@ buttonToDoCreate.addEventListener('click', () => {
 			id: arrTodoList.length + 1,
 			name: todoName,
 			description: todoDescription,
+			isDone: false,
 		};
 		arrTodoList.push(todo);
 		localStorage.setItem('todoList', JSON.stringify(arrTodoList));

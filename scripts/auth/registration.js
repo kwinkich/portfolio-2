@@ -1,4 +1,4 @@
-import { goToApp, goToSuccess } from './redirect.js';
+import { goToApp, goToSuccess } from '../redirects/redirect.js';
 
 // Универсальная функция для выборки элементов
 const select = (selector) => document.querySelector(selector);

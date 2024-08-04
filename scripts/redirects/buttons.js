@@ -1,4 +1,4 @@
-import * as redirect from './redirect.js';
+import * as redirect from '../redirects/redirect.js';
 
 const logOutBtn = document.querySelectorAll('#btn-logOut');
 const letsStart = document.querySelectorAll('#btn-letsStart');
