@@ -1,3 +1,12 @@
+function isDone(arr, callback, doneValue) {
+	return arr
+		.filter((item) => item.isDone === doneValue)
+		.map((item) => {
+			callback(item);
+			return item;
+		});
+}
+
 let buttonToDoDone;
 let buttonToDontDone;
 let buttonToDoDelete;
@@ -43,12 +52,11 @@ function createEmptyText() {
 }
 
 if (arrTodoList.length > 0) {
-	let activeToDos = arrTodoList.filter((todo) => {
-		if (todo.isDone !== true) {
-			containerActiveToDos.appendChild(createTodoElement(todo));
-			return todo;
-		}
-	});
+	let activeToDos = isDone(
+		arrTodoList,
+		(todo) => containerActiveToDos.appendChild(createTodoElement(todo)),
+		false
+	);
 
 	if (activeToDos.length <= 0) {
 		containerActiveToDos.appendChild(createEmptyText());
@@ -61,12 +69,11 @@ if (arrTodoList.length > 0) {
 }
 
 if (arrTodoList.length > 0) {
-	let doneTodos = arrTodoList.filter((todo) => {
-		if (todo.isDone !== false) {
-			containerDoneToDos.appendChild(createTodoElement(todo));
-			return todo;
-		}
-	});
+	let doneTodos = isDone(
+		arrTodoList,
+		(todo) => containerDoneToDos.appendChild(createTodoElement(todo)),
+		true
+	);
 
 	if (doneTodos.length <= 0) {
 		containerDoneToDos.appendChild(createEmptyText());
